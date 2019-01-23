@@ -1,0 +1,24 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+  </head>
+  <body>
+    <input type="submit" class="button" name="connect" value="connect" />
+    <input type="submit" class="button" name="disconnect" value="disconnect" />
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <script>
+      $(document).ready(function(){
+          $('.button').click(function(){
+              var clickBtnValue = $(this).val();
+              var url = 'client.php';
+              data =  {'action': clickBtnValue};
+              $.post(url, data);
+          });
+      });
+
+    </script>
+  </body>
+</html>
