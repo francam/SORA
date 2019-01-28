@@ -3,43 +3,66 @@ import java.net.*;
 
 public class TCPServer{
 
-  static ServerSocket socket;
-  static int port = 8080;
-  static Socket connection;
-  static String input = new String();
-  static String output = new String();
-  boolean isConneted = false;
+  private ServerSocket serverSocket;
+  private Socket clientSocket;
+  private PrintWriter out;
+  private BufferedReader in;
 
-  public static void main(String[] args)
-  {
-    init();
+  static boolean isConnected = false;
+  static String cmd = "";
+
+  public static void main(String[] args) {
+    TCPServer server = new TCPServer();
+    server.start(8080);
+    while (isConnected = true){
+      cmd = server.listen();
+      if (cmd == "bye"){
+        server.stop();
+      }
+    }
   }
 
-  public static void init()
+  public Socket start(int port)
   {
-    System.out.println(">> Starting Server:");
     try {
-      socket = new ServerSocket(port);
+      serverSocket = new ServerSocket(port);
+      clientSocket = serverSocket.accept();
+      isConnected = true;
 
-      while(true){
-        connection = socket.accept();
-        System.out.println(">> Client Connected");
+      System.out.println(">> Connected to client");
+      out = new PrintWriter(clientSocket.getOutputStream(), true);
+    } catch (IOException e){
+      e.printStackTrace();
+    }
+    return clientSocket;
+  }
 
-        InputStreamReader inputStream = new InputStreamReader(connection.getInputStream());
-        BufferedReader in = new BufferedReader(inputStream);
-        String cmd = new String();
-        cmd = in.readLine();
+  public void stop()
+  {
+    try {
+      in.close();
+      out.close();
+      clientSocket.close();
+      serverSocket.close();
+    } catch (IOException e){
+      e.printStackTrace();
+    }
+    System.out.println(">> Server stopped");
+    isConnected = false;
+  }
 
-        System.out.println(">> cmd: " + cmd);
-        System.out.println(">> Sending confirmation");
-
-        PrintStream response = new PrintStream(connection.getOutputStream());
-
-        response.println(cmd);
-
+  public String listen()
+  {
+    String msg = new String();
+    try {
+      InputStreamReader inputStream = new InputStreamReader(clientSocket.getInputStream());
+      in = new BufferedReader(inputStream);
+      while ((msg = in.readLine()) != null){
+        System.out.println(">> Command: "+ msg);
       }
     } catch (IOException e){
       e.printStackTrace();
     }
+    return cmd;
   }
 }
