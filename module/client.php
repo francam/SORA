@@ -4,8 +4,8 @@ $socket  = socket_create(AF_INET, SOCK_STREAM, 0) or die("Could not create socke
 
 function connect(){
 
-  $host    = "localhost";
-  $port    = 8080;
+  $host = "localhost";
+  $port = 8080;
   global $socket;
 
   $result = socket_connect($socket, $host, $port) or die("Could not connect to server\n");
@@ -13,12 +13,19 @@ function connect(){
 
   write($socket, "hello!\n");
 
+  while (true) {
+    if (isset($_POST["cmd"])) {
+      $cmd = $_POST["cmd"] . "\n";
+      write($socket, $cmd);
+    }
+  }
+
   $out = read($socket);
 }
 
 function disconnect(){
   global $socket;
-  write($socket, "disconnecting\n");
+  write($socket, "bye!\n");
   socket_close($socket);
 }
 
@@ -31,14 +38,8 @@ function read($sock){
   return $output;
 }
 
-// reads the value of the button pressed and acts on it. Disconnect should be here, but it also doesn't really work.
-if (isset($_POST['action'])) {
-  switch ($_POST['action']) {
-    case 'connect':
-      connect();
-      break;
-    case 'disconnect':
-      disconnect();
-      break;
+if (isset($_POST["action"])) {
+  if ($_POST["action"] == "connect") {
+    connect();
   }
 }

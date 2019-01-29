@@ -4,19 +4,39 @@
     <meta charset="UTF-8">
   </head>
   <body>
-    <input type="submit" class="button" name="connect" value="connect" />
-    <input type="submit" class="button" name="disconnect" value="disconnect" />
+    <input type="submit" class="connectbutton" name="connect" id="connect" value="connect" />
+    <input type="text" name="cmd" id="cmd" />
+    <input type="submit" name="sub" id="sub" value="Submit" />
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
     <script>
       $(document).ready(function(){
-          $('.button').click(function(){
-              var clickBtnValue = $(this).val();
-              var url = 'client.php';
-              data =  {'action': clickBtnValue};
-              $.post(url, data);
+        $("#connect").click(function(){
+          $.ajax({
+            type: "POST",
+            url: "client.php",
+            data: {
+              action: $("#connect").val()
+            },
+            success: function(result){
+              $("div").html(result);
+            }
           });
+        });
+
+        $("#sub").click(function(){
+          var cmd = $("#cmd").val();
+          $.ajax({
+            type: "POST",
+            url: "client.php",
+            cache: false,
+            data: "cmd=" + cmd,
+            success: function(result){
+              $("div").html(result);
+            }
+          });
+        });
       });
 
     </script>
