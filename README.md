@@ -12,3 +12,5 @@ The Arduino Mega's code that creates an Telnet connection when connected to the 
 * Connect the Ethernet from the Ethernet Shield to the Host.
 * Download the Arduino file from this repo.
 * Upload the file to the Mega.
+
+[Previous changes to this project can be found here.](https://github.com/JGBMichalski/MegaEthernet)
