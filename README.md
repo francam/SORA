@@ -8,3 +8,6 @@ This is a Java Client & Server to run on the Jetson that controls the Arduino Me
 * Make sure the Mega is connected to the Jetson via Ethernet.
 * Power on the Jetson and make sure the Arduino is powered as well.
 * Run 'JS.jar' found in 'JavaJetsonClientServer/JetsonServer/bin'.
+
+
+[Previous updates can be found at here.](https://github.com/JGBMichalski/JavaJetsonClientServer)
