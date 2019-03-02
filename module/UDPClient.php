@@ -4,7 +4,7 @@
 error_reporting(~E_WARNING);
 
 //$server = getHostByName(getHostName());
-$server = '140.193.201.196';
+$server = '192.168.100.121';
 //$server = '140.193.179.192';
 $port = 8080;
 
@@ -15,9 +15,9 @@ if (!($sock = socket_create(AF_INET, SOCK_DGRAM, 0))){
   die("Couldn't create socket : [ $errorcode ] $errormsg \n");
 }
 
-echo "Socket Created \n";
+echo "Host IP: $server Socket Created \n";
 
-/*if (empty($_POST['name'])) {
+if (empty($_POST['name'])) {
 		$errors['name'] = 'Name cannot be blank';
 }
 
@@ -27,8 +27,8 @@ if (!empty($errors)) {
 	$form_data['cmd'] = $_POST['name'];
 }
 
-$input = $form_data['cmd'];*/
-while (1){
+$input = $form_data['cmd'];
+//while (1){
 
   $input = fgets(STDIN);
 
@@ -43,13 +43,13 @@ while (1){
 
   //unset($input);
 
-  if (socket_recv($sock, $reply, 2045, MSG_WAITALL) === FALSE){
+  /*if (socket_recv($sock, $reply, 2045, MSG_WAITALL) === FALSE){
     $errorcode = socket_last_error();
     $errormsg = socket_strerror($errorcode);
 
     die ("Could not receive data: $errorcode] $errormsg \n");
   }
 
-  echo ">> Reply : $reply";
+  echo ">>: $reply";*/
 
-}
+//}
