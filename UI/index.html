@@ -1,0 +1,94 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>index</title>
+<link href="styles.css" rel="stylesheet" type="text/css">
+</head>
+	
+<body>
+	<header><h1>SORA v0.5</h1></header>
+	<main>
+		<div class="videobox">
+			<h1> VIDEO HERE </h1>
+		</div>
+		<div class="sentry_button">
+			<h1>SENTRY MODE</h1>
+		</div>
+		<div class="manual_button">
+		  <h1>MANUAL MODE</h1>
+		</div>
+
+
+	</main>
+	<footer>
+			<div></div>
+	</footer>
+
+
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	
+	<script>
+		$(document).ready(function(){
+			
+			var counter = 0;
+			
+			$(".sentry_button").on("click", function() {
+				$(this).animate({width: '98%'});
+				$(this).append('<div class="close"><img src="images/x_blue.png" height="25" width="25"></div>');
+				$(".sentry_button h1").animate({
+					fontSize: '15px', 
+					paddingTop: '0px'
+				});
+				$(".manual_button").hide(100);
+			});
+			
+			$(document).on('click', '.close' , function(event) {
+  				event.stopPropagation();
+				$(".sentry_button h1").animate({
+					fontSize: '40px', 
+					paddingTop: 'auto'
+				});
+  				$(".sentry_button").animate({width: '48%'} , function(){
+					$(".manual_button").show();
+					$('.close').remove();
+				});
+			});
+			
+			
+			$(".manual_button").on("click", function() {
+				
+				$(this).animate({width: '98%'});
+				
+				if (counter<=0){
+					$(this).append('<div class="close"><img src="images/x_green.png" height="25" width="25"></div>');
+					$(this).append('<div class="reset">RESET</div>');
+					counter++;
+				}
+				
+				$(".manual_button h1").animate({
+					fontSize: '15px', 
+					paddingTop: '0px'
+				});
+				$(".sentry_button").hide(100);
+			});
+			
+			$(document).on('click', '.close' , function(event) {
+  				event.stopPropagation();
+				counter = 0;
+				$(".manual_button h1").animate({
+					fontSize: '40px', 
+					paddingTop: 'auto'
+				});
+  				$(".manual_button").animate({width: '48%'} , function(){
+					$(".sentry_button").show();
+					$('.close').remove();
+					$('.reset').remove();
+				});
+			});
+		});
+	</script>
+	
+</body>
+</html>
