@@ -20,8 +20,13 @@ footer {
 .videobox {
 	position: relative;
 	height: 338px;
-	background-color: #FF00D7;
+	background-color: #FFFFFF;
 	margin: 1%;
+}
+
+.videobox video {
+  width: 100%    !important;
+  height: 100%   !important;
 }
 
 .disconnect_button{
@@ -87,7 +92,7 @@ footer {
 	background-color: #6D292A;
 	vertical-align: middle;
 	border-radius: 100px;
-	
+
 	font-family: sanFranciscoBold;
 	color: #FFFFFF;
 	text-align: center;
@@ -174,11 +179,11 @@ footer {
 	.start_stop {
 		left: 40%;
 	}
-	
+
 	.dir_left {
 		left: 43.5%;
 	}
-	
+
 	.dir_right {
 		right: 40%;
 	}
@@ -189,19 +194,19 @@ footer {
 	.start_stop {
 		left: 30%;
 	}
-	
+
 	.dir_up {
 		left: 45%;
 	}
-	
+
 	.dir_down {
 		left: 45%;
 	}
-	
+
 	.dir_left {
 		left: 36%;
 	}
-	
+
 	.dir_right {
 		right: 32%;
 	}

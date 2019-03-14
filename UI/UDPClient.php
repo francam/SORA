@@ -3,8 +3,8 @@
 //$form_data = array();
 error_reporting(~E_WARNING);
 
-$server = getHostByName(getHostName());
-//$server = '192.168.100.121';
+//$server = getHostByName(getHostName());
+$server = '192.168.1.101';
 //$server = '140.193.179.192';
 $port = 8080;
 
