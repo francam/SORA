@@ -8,6 +8,8 @@
 </head>
 
 <body>
+	<script src="https://cdn.dashjs.org/latest/dash.all.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<header>
 		<h1>SORA v2</h1>
 		<div class = "disconnect_button">
@@ -18,8 +20,7 @@
 		<div class = "status_bar">
 		</div>
 		<div class="videobox">
-			<video controls>
-							<source src="http://localhost:8080" type="video/webm" codec="vp8.0">
+			<video data-dashjs-player autoplay src="http://localhost:8080" type="video/webm" codec="vp8.0" controls>
 			</video>
 		</div>
 		<div class="collect_button">
@@ -32,9 +33,6 @@
 	<footer>
 	</footer>
 
-
-
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
 	<script>
 		$(document).ready(function(){
