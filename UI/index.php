@@ -2,7 +2,8 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>index</title>
+<title>SORA</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
 <link href="styles.css" rel="stylesheet" type="text/css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
@@ -11,7 +12,7 @@
 	<script src="https://cdn.dashjs.org/latest/dash.all.min.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<header>
-		<h1>SORA v2</h1>
+		<h1>SORA v3</h1>
 		<div class = "disconnect_button">
 			<h1>DISCONNECT</h1>
 		</div>

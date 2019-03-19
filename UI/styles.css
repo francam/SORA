@@ -174,23 +174,98 @@ footer {
 	font-weight: bold;
 }
 
+/*iPHONE X Landscape*/
+@media (max-height:812px){
+	header {
+		font-family: sanFranciscoBold;
+		font-size: 10px;
+	}
+	
+	.videobox {
+		height: 175px;
+		background-color:#EE0307; 
+	}
+	
+	.disconnect_button{
+		width: 100px;
+		height: 25px;
+	}
+
+	.disconnect_button h1 {
+		font-family: sanFranciscoBold;
+		color: #FFFFFF;
+		text-align: center;
+		font-size: 10px;
+	}	
+	
+	.collect_button {
+		height: 90px;
+	}
+	
+	.detect_button {
+		height: 90px;
+	}
+	
+	.dir_up {
+		left: 10%;
+	}
+
+	.dir_down {
+		left: 20%;
+		bottom: 24.5%;
+	}
+
+	.dir_left {
+		left: 73%;
+		bottom: 24.5%;
+	}
+
+	.dir_right {
+		right: 10%;
+		bottom: 24.5%;
+	}
+	
+}
+
+
 /*TABLET*/
 @media (max-width:768px){
 	.start_stop {
 		left: 40%;
-	}
-
-	.dir_left {
-		left: 43.5%;
-	}
-
-	.dir_right {
-		right: 40%;
-	}
+	}	
 }
 
-/*PHONE*/
-@media (max-width:400px){
+/*iPHONE X Portrait*/
+@media (max-width:479px){
+	header {
+		font-family: sanFranciscoBold;
+		font-size: 15px;
+	}
+	
+	.disconnect_button{
+		width: 200px;
+		height: 50px;
+	}
+
+	.disconnect_button h1 {
+		font-family: sanFranciscoBold;
+		color: #FFFFFF;
+		text-align: center;
+		font-size: 20px;
+	}
+	
+	.videobox {
+		height: 338px;
+	}
+	
+	.collect_button {
+		height: 180px;
+	}
+	
+	.detect_button {
+		height: 180px;
+	}
+	
 	.start_stop {
 		left: 30%;
 	}
@@ -201,13 +276,17 @@ footer {
 
 	.dir_down {
 		left: 45%;
+		bottom: 15%
 	}
 
 	.dir_left {
-		left: 36%;
+		left: 35%;
+		bottom: 34%;
 	}
 
 	.dir_right {
-		right: 32%;
+		right: 30%;
+		bottom: 34%;
 	}
 }
+
