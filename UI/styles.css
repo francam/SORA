@@ -13,9 +13,6 @@ header {
 	font-family: sanFranciscoBold;
 }
 
-footer {
-	max-height: 500px;
-}
 
 .videobox {
 	position: relative;
@@ -25,8 +22,8 @@ footer {
 }
 
 .videobox video {
-  width: 100%    !important;
-  height: 100%   !important;
+  	width: 100%    !important;
+  	height: 100%   !important;
 }
 
 .disconnect_button{
@@ -174,9 +171,36 @@ footer {
 	font-weight: bold;
 }
 
+/*TABLET Landscape*/
+@media only screen and (min-width: 1024px) and (max-width:1030px){
+	.start_stop {
+		left: 43%;
+	}
+	.dir_left {
+		left: 44%;
+	}
+	.dir_right {
+		right: 42.5%;
+	}
+}
+
+/*TABLET Portrait*/
+@media only screen and (min-width: 768px) and (max-width:799px){
+	.start_stop {
+		left: 40%;
+	}
+	.dir_left {
+		left: 42%;
+	}
+	.dir_right {
+		right: 38.75%;
+	}
+}
+
 /*iPHONE X Landscape*/
-@media (max-height:812px){
+@media only screen and (min-width: 600px) and (max-width:724px){
 	header {
+		max-height: 50px;
 		font-family: sanFranciscoBold;
 		font-size: 10px;
 	}
@@ -225,14 +249,10 @@ footer {
 		bottom: 24.5%;
 	}
 	
-}
-
-
-/*TABLET*/
-@media (max-width:768px){
 	.start_stop {
-		left: 40%;
-	}	
+		left: 39.5%;
+	}
+	
 }
 
 /*iPHONE X Portrait*/
