@@ -16,5 +16,5 @@ For this operation to happen, you will need to install Gstreamer on host compute
 
 After installing Gstreamer, run the following command:
 
-gst-launch-1.0 udpsrc port=5000 ! application/x-rtp,encoding-name=VP8 ! rtpvp8depay ! webmmux streamable=true ! queue ! tcpserversink host=localhost port=8080
+gst-launch-1.0 udpsrc port=5000 ! application/x-rtp, encoding-name=JPEG, payload=26 ! rtpjpegdepay ! jpegdec ! videoconvert ! vp8enc ! webmmux streamable=true ! tcpserversink host=localhost port=8080 -e
 
