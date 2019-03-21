@@ -60,8 +60,8 @@ void setup() {
   
   Serial.begin(9600);
   Serial.write("Starting...");
-  motor1.setSpeed(60);
-  motor2.setSpeed(60);
+  motor1.setSpeed(30);
+  motor2.setSpeed(30);
   // Open serial communications and wait for port to open:
   // this check is only needed on the Leonardo:
   //while (!Serial) {
@@ -121,9 +121,9 @@ void loop() {
     }
     
     if (data.indexOf("x") >= 0) { 
-      String val = data.substring(1, 5);
+      String val = data.substring(1, data.indexOf(";"));
       // echo the bytes back to the client:
-      int time = 1000;
+      //int time = 1000;
       //Serial.setTimeout(time);
       int steps = val.toInt(); //timing out??????
       motor2.step(steps);
@@ -133,9 +133,9 @@ void loop() {
       Ethernet.maintain();
       
     } else if (data.indexOf("y") >= 0) {
-      String val = data.substring(1, 5);
+      String val = data.substring(1, data.indexOf(";"));
       // echo the bytes back to the client:
-      int time = 1000;
+      //int time = 1000;
       //Serial.setTimeout(time);
       int steps = val.toInt(); //timing out??????
       motor1.step(steps);
@@ -143,9 +143,23 @@ void loop() {
       // echo the bytes to the server as well:
       //Serial.println(val);
       Ethernet.maintain();
-    } else {
+      
+    } else if (data.indexOf("s") >= 0) {
+      String val = data.substring(1, data.indexOf(";"));
+      // echo the bytes back to the client:
+      //int time = 1000;
+      //Serial.setTimeout(time);
+      int speed = val.toInt(); //timing out??????
+      motor1.setSpeed(speed);
+      motor2.setSpeed(speed);
+      //Serial.println(steps);
+      // echo the bytes to the server as well:
+      //Serial.println(val);
+      Ethernet.maintain();
+    }else {
       //Serial.print("No Motor Chosen");
       server.write("No Motor Chosen");
     }
+    data = "";
   }
 }
